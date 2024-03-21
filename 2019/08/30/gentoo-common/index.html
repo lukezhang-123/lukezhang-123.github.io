@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>gentoo的一些总结 | lukezhang123 pages</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="gentoo的一些总结 | lukezhang123 pages">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="sip,类似http的文本协议，也有状态码，异步，一个 SIP请求可能导致生成一个或多个请求SIP包有三个主要部分：Request-Line(表示是请求信息)，Message Header(SIP包的消息头哉)，Message Body(SIP包的消息主体)sip消息两种，request，respond 请求头–Request:INVITE sip: &#48;&#49;&#x35;&#x42;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sip">
+<meta property="og:url" content="http://example.com/2019/11/19/sip/index.html">
+<meta property="og:site_name" content="lukezhang123 pages">
+<meta property="og:description" content="sip,类似http的文本协议，也有状态码，异步，一个 SIP请求可能导致生成一个或多个请求SIP包有三个主要部分：Request-Line(表示是请求信息)，Message Header(SIP包的消息头哉)，Message Body(SIP包的消息主体)sip消息两种，request，respond 请求头–Request:INVITE sip: &#48;&#49;&#x35;&#x42;&amp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/sip%E5%8D%8F%E8%AE%AE.png">
+<meta property="article:published_time" content="2019-11-19T12:25:00.000Z">
+<meta property="article:modified_time" content="2024-03-21T03:49:21.244Z">
+<meta property="article:author" content="lukezhang123">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/sip%E5%8D%8F%E8%AE%AE.png">
+
+
+<link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/github-lukezhang-123.jpg"/>
+</a>
+<div class="author">
+    <span>lukezhang123</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/lukezhang-123"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="csdn"
+               href="https://blog.csdn.net/c5113620"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-csdn"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:lukezhang123@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(66)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="高数">
+            
+            高数
+            <small>(4)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="计算机专业">
+            
+            计算机专业
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="软件">
+            
+            软件
+            <small>(4)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="ArchLinux">
+            
+            ArchLinux
+            <small>(12)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="debian">
+            
+            debian
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="docker">
+            
+            docker
+            <small>(4)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="gentoo">
+            
+            gentoo
+            <small>(8)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="latex">
+            
+            latex
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="linux命令">
+            
+            linux命令
+            <small>(13)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="python">
+            
+            python
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="virtualbox">
+            
+            virtualbox
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+        
+            
+                
+    <li>
+        <div data-rel="xorg">
+            
+            xorg
+            <small>(2)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">About</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">Friends</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="66">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="https://www.baidu.com/">百度</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>-mac</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>安装</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>谷歌</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>软件</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>输入法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学公式</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>双系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜狗</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>图标</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>桌面环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>archiso</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ArchLinux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Aur</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>autostart</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cat</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>chrome</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>conky</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>du</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>efi</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>efi启动</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>emerge</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>fdisk</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>find</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gdm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gentoo</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gentoo-quick</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gentoo桌面</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gnome</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>gnome#autostart</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>grep</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>head</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>i3</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ifconfig</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>latex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>linux命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>mbr</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>neofetch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>node-sass</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>offline</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Package</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>redis</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>route</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>screenfetch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sed</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sfdisk</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sogou</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>ssh</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>sshd</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tail</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tar</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>tex</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>uniq</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>USE</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>vim</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>virtualbox</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>webrsync</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>wifi</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>wm</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>wpa_supplicant</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>xorg</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>xorg-server</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="All "
+           href="/2019/11/19/sip/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="sip">sip</span>
+            <span class="post-date" title="2019-11-19 20:25:00">2019/11/19</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/11/01/js/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="js常识">js常识</span>
+            <span class="post-date" title="2019-11-01 17:51:02">2019/11/01</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/11/01/eclipse-java/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="eclipse-java">eclipse-java</span>
+            <span class="post-date" title="2019-11-01 11:15:58">2019/11/01</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/10/31/vue2/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="vue2 脚手架scaffold">vue2 脚手架scaffold</span>
+            <span class="post-date" title="2019-10-31 14:45:07">2019/10/31</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/10/31/node-sass/"
+           data-tag="node-sass"
+           data-author="" >
+            <span class="post-title" title="node-sass">node-sass</span>
+            <span class="post-date" title="2019-10-31 11:16:36">2019/10/31</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/10/24/mac/"
+           data-tag="-mac"
+           data-author="" >
+            <span class="post-title" title="根据mac的系统app制作vmware可启动镜像">根据mac的系统app制作vmware可启动镜像</span>
+            <span class="post-date" title="2019-10-24 14:29:05">2019/10/24</span>
+        </a>
+        
+        
+        <a  class="All python "
+           href="/2019/10/08/python/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="python">python</span>
+            <span class="post-date" title="2019-10-08 10:03:46">2019/10/08</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/09/30/linux-common/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="linux-common">linux-common</span>
+            <span class="post-date" title="2019-09-30 16:22:56">2019/09/30</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/09/30/hadoop/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="hadoop">hadoop</span>
+            <span class="post-date" title="2019-09-30 15:43:19">2019/09/30</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/09/29/grep/"
+           data-tag="grep"
+           data-author="" >
+            <span class="post-title" title="grep">grep</span>
+            <span class="post-date" title="2019-09-29 17:18:16">2019/09/29</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/09/29/sed/"
+           data-tag="sed"
+           data-author="" >
+            <span class="post-title" title="sed">sed</span>
+            <span class="post-date" title="2019-09-29 17:01:15">2019/09/29</span>
+        </a>
+        
+        
+        <a  class="All docker "
+           href="/2019/09/29/docker-logstash/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="docker-logstash">docker-logstash</span>
+            <span class="post-date" title="2019-09-29 14:46:31">2019/09/29</span>
+        </a>
+        
+        
+        <a  class="All docker "
+           href="/2019/09/27/docker-es-kibana/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="docker-es-kibana">docker-es-kibana</span>
+            <span class="post-date" title="2019-09-27 15:04:14">2019/09/27</span>
+        </a>
+        
+        
+        <a  class="All docker "
+           href="/2019/09/27/docker/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="docker的使用">docker的使用</span>
+            <span class="post-date" title="2019-09-27 10:56:42">2019/09/27</span>
+        </a>
+        
+        
+        <a  class="All docker "
+           href="/2019/09/27/docker-zookeeper/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="docker-zookeeper">docker-zookeeper</span>
+            <span class="post-date" title="2019-09-27 10:54:08">2019/09/27</span>
+        </a>
+        
+        
+        <a  class="All debian "
+           href="/2019/09/27/debian/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="debian">debian</span>
+            <span class="post-date" title="2019-09-27 09:59:09">2019/09/27</span>
+        </a>
+        
+        
+        <a  class="All 高数 "
+           href="/2019/09/25/math-Linear-algebra/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="线性代数Linear-algebra">线性代数Linear-algebra</span>
+            <span class="post-date" title="2019-09-25 15:13:52">2019/09/25</span>
+        </a>
+        
+        
+        <a  class="All 计算机专业 "
+           href="/2019/09/12/cs-net-common/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="计算机网络通识">计算机网络通识</span>
+            <span class="post-date" title="2019-09-12 16:31:01">2019/09/12</span>
+        </a>
+        
+        
+        <a  class="All 高数 "
+           href="/2019/09/11/math-dao-wei-ji/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="导数微分积分三者关系">导数微分积分三者关系</span>
+            <span class="post-date" title="2019-09-11 11:40:14">2019/09/11</span>
+        </a>
+        
+        
+        <a  class="All 高数 "
+           href="/2019/09/11/math-Taylor-formula/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="泰勒公式Taylor-formula">泰勒公式Taylor-formula</span>
+            <span class="post-date" title="2019-09-11 10:59:43">2019/09/11</span>
+        </a>
+        
+        
+        <a  class="All 高数 "
+           href="/2019/09/11/math-Equivalent-Infinitesimal/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="等价无穷小Equivalent-Infinitesimal">等价无穷小Equivalent-Infinitesimal</span>
+            <span class="post-date" title="2019-09-11 10:47:10">2019/09/11</span>
+        </a>
+        
+        
+        <a  class="All latex "
+           href="/2019/09/10/latex-math/"
+           data-tag="数学公式"
+           data-author="" >
+            <span class="post-title" title="latex常用的数学公式生成">latex常用的数学公式生成</span>
+            <span class="post-date" title="2019-09-10 10:33:02">2019/09/10</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/09/04/nano/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="nano">nano</span>
+            <span class="post-date" title="2019-09-04 20:03:00">2019/09/04</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/09/04/gentoo-emerge/"
+           data-tag="emerge"
+           data-author="" >
+            <span class="post-title" title="gentoo的emerge选项">gentoo的emerge选项</span>
+            <span class="post-date" title="2019-09-04 19:03:40">2019/09/04</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/09/04/linux-manual-dhcp/"
+           data-tag="linux命令,ifconfig,route"
+           data-author="" >
+            <span class="post-title" title="linux手动配置网络">linux手动配置网络</span>
+            <span class="post-date" title="2019-09-04 18:22:55">2019/09/04</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/09/04/gentoo-offline/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="gentoo完全离线安装">gentoo完全离线安装</span>
+            <span class="post-date" title="2019-09-04 17:54:29">2019/09/04</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/09/04/gentoo-portage/"
+           data-tag="webrsync"
+           data-author="" >
+            <span class="post-title" title="gentoo的portage与emerge-webrsync">gentoo的portage与emerge-webrsync</span>
+            <span class="post-date" title="2019-09-04 17:40:12">2019/09/04</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/09/03/archlinux-pkg/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="archlinux制作离线安装软件包">archlinux制作离线安装软件包</span>
+            <span class="post-date" title="2019-09-03 18:39:58">2019/09/03</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/09/03/gentoo-USE/"
+           data-tag="USE"
+           data-author="" >
+            <span class="post-title" title="gentoo的USE变量">gentoo的USE变量</span>
+            <span class="post-date" title="2019-09-03 17:11:31">2019/09/03</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/09/02/gentoo-quick/"
+           data-tag="gentoo-quick"
+           data-author="" >
+            <span class="post-title" title="快速安装最小gentoo系统">快速安装最小gentoo系统</span>
+            <span class="post-date" title="2019-09-02 17:56:43">2019/09/02</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/08/30/gentoo-common/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="gentoo的一些总结">gentoo的一些总结</span>
+            <span class="post-date" title="2019-08-30 17:33:06">2019/08/30</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/08/30/gentoo-gnome/"
+           data-tag="gentoo桌面"
+           data-author="" >
+            <span class="post-title" title="gentoo安装gnome桌面与systemd">gentoo安装gnome桌面与systemd</span>
+            <span class="post-date" title="2019-08-30 17:10:05">2019/08/30</span>
+        </a>
+        
+        
+        <a  class="All gentoo "
+           href="/2019/08/29/gentoo-minimal/"
+           data-tag="gentoo"
+           data-author="" >
+            <span class="post-title" title="安装最小gentoo系统">安装最小gentoo系统</span>
+            <span class="post-date" title="2019-08-29 15:52:57">2019/08/29</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/08/28/archlinux-virtualbox-guest/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="virtualbox内的archlinux安装Guest Additions iso">virtualbox内的archlinux安装Guest Additions iso</span>
+            <span class="post-date" title="2019-08-28 10:45:56">2019/08/28</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/28/archlinux-iso/"
+           data-tag="archiso,offline"
+           data-author="" >
+            <span class="post-title" title="使用archiso镜像快速安装--mbr方式">使用archiso镜像快速安装--mbr方式</span>
+            <span class="post-date" title="2019-08-28 10:10:24">2019/08/28</span>
+        </a>
+        
+        
+        <a  class="All latex "
+           href="/2019/08/26/latex/"
+           data-tag="tex,latex"
+           data-author="" >
+            <span class="post-title" title="latex排版工具生成pdf">latex排版工具生成pdf</span>
+            <span class="post-date" title="2019-08-26 14:08:40">2019/08/26</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/16/du-foldersize/"
+           data-tag="du"
+           data-author="" >
+            <span class="post-title" title="使用du显示文件夹大小">使用du显示文件夹大小</span>
+            <span class="post-date" title="2019-08-16 14:14:09">2019/08/16</span>
+        </a>
+        
+        
+        <a  class="All 软件 "
+           href="/2019/08/15/redis/"
+           data-tag="redis"
+           data-author="" >
+            <span class="post-title" title="redis经验">redis经验</span>
+            <span class="post-date" title="2019-08-15 20:06:11">2019/08/15</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/15/tarball-rootdirectory/"
+           data-tag="sed,tar,uniq"
+           data-author="" >
+            <span class="post-title" title="获取tar压缩包tarball的根目录文件名">获取tar压缩包tarball的根目录文件名</span>
+            <span class="post-date" title="2019-08-15 17:36:10">2019/08/15</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/15/find-denied/"
+           data-tag="find"
+           data-author="" >
+            <span class="post-title" title="find查找是不要显示&#34;Permission denied&#34;">find查找是不要显示&#34;Permission denied&#34;</span>
+            <span class="post-date" title="2019-08-15 16:16:31">2019/08/15</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/14/view-log/"
+           data-tag="grep,sed,tail,head"
+           data-author="" >
+            <span class="post-title" title="linux 方便看日志-具体行查看">linux 方便看日志-具体行查看</span>
+            <span class="post-date" title="2019-08-14 13:37:49">2019/08/14</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/13/cat-heredoc/"
+           data-tag="linux命令,cat"
+           data-author="" >
+            <span class="post-title" title="heredoc使用cat写入大段内容到文件,脚本生成配置文件">heredoc使用cat写入大段内容到文件,脚本生成配置文件</span>
+            <span class="post-date" title="2019-08-13 16:06:46">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/13/vim-w-sudo/"
+           data-tag="linux命令,vim"
+           data-author="" >
+            <span class="post-title" title="vim的w时没有权限怎么sudo保存">vim的w时没有权限怎么sudo保存</span>
+            <span class="post-date" title="2019-08-13 15:59:27">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/08/13/i3wm-common/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="i3窗口管理器的简单使用-快捷键">i3窗口管理器的简单使用-快捷键</span>
+            <span class="post-date" title="2019-08-13 15:18:38">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All virtualbox "
+           href="/2019/08/13/vbox-efi/"
+           data-tag="efi,virtualbox"
+           data-author="" >
+            <span class="post-title" title="virtualbox在开机后的uefi shell启动进入系统">virtualbox在开机后的uefi shell启动进入系统</span>
+            <span class="post-date" title="2019-08-13 15:10:50">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/13/sfdisk/"
+           data-tag="linux命令,sfdisk"
+           data-author="" >
+            <span class="post-title" title="sfdisk可以方便备份与恢复分区表">sfdisk可以方便备份与恢复分区表</span>
+            <span class="post-date" title="2019-08-13 15:06:54">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/13/fdisk-shell/"
+           data-tag="linux命令,fdisk"
+           data-author="" >
+            <span class="post-title" title="fdisk 完全命令行执行分区">fdisk 完全命令行执行分区</span>
+            <span class="post-date" title="2019-08-13 15:01:54">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/13/archlinux-wifi/"
+           data-tag="linux命令,wpa_supplicant,wifi"
+           data-author="" >
+            <span class="post-title" title="wpa_supplicant连接无线">wpa_supplicant连接无线</span>
+            <span class="post-date" title="2019-08-13 14:54:29">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/13/archlinux-dualboot/"
+           data-tag="ArchLinux,双系统"
+           data-author="" >
+            <span class="post-title" title="archlinux与Windows的双系统启动 efi与mbr">archlinux与Windows的双系统启动 efi与mbr</span>
+            <span class="post-date" title="2019-08-13 14:40:23">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All linux命令 "
+           href="/2019/08/13/alias-sudo-to-please/"
+           data-tag="linux命令,linux"
+           data-author="" >
+            <span class="post-title" title="快速重新执行需要sudo的命令">快速重新执行需要sudo的命令</span>
+            <span class="post-date" title="2019-08-13 14:36:50">2019/08/13</span>
+        </a>
+        
+        
+        <a  class="All 软件 "
+           href="/2019/08/09/screenfetch/"
+           data-tag="screenfetch,neofetch"
+           data-author="" >
+            <span class="post-title" title="screenfetch或neofetch 终端显示系统仪表盘信息">screenfetch或neofetch 终端显示系统仪表盘信息</span>
+            <span class="post-date" title="2019-08-09 16:07:54">2019/08/09</span>
+        </a>
+        
+        
+        <a  class="All 软件 "
+           href="/2019/08/09/i3-wm/"
+           data-tag="i3,wm"
+           data-author="" >
+            <span class="post-title" title="i3是最精简的窗口管理器没有之一">i3是最精简的窗口管理器没有之一</span>
+            <span class="post-date" title="2019-08-09 15:15:36">2019/08/09</span>
+        </a>
+        
+        
+        <a  class="All xorg "
+           href="/2019/08/09/xorg-only/"
+           data-tag="xorg,xorg-server"
+           data-author="" >
+            <span class="post-title" title="只启动x-server深入linux图形架构 后启动我们自己的小窗口">只启动x-server深入linux图形架构 后启动我们自己的小窗口</span>
+            <span class="post-date" title="2019-08-09 14:54:27">2019/08/09</span>
+        </a>
+        
+        
+        <a  class="All 软件 "
+           href="/2019/08/09/conky/"
+           data-tag="conky,软件"
+           data-author="" >
+            <span class="post-title" title="conky华丽桌面显示系统仪表盘">conky华丽桌面显示系统仪表盘</span>
+            <span class="post-date" title="2019-08-09 11:54:15">2019/08/09</span>
+        </a>
+        
+        
+        <a  class="All xorg "
+           href="/2019/08/09/xorg-server-newbie/"
+           data-tag="xorg,xorg-server"
+           data-author="" >
+            <span class="post-title" title="xorg-server的c语言入门">xorg-server的c语言入门</span>
+            <span class="post-date" title="2019-08-09 11:29:40">2019/08/09</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-aur/"
+           data-tag="Aur,Package"
+           data-author="" >
+            <span class="post-title" title="archlinux的用户自建的包安装Aur">archlinux的用户自建的包安装Aur</span>
+            <span class="post-date" title="2019-08-05 20:12:57">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-common/"
+           data-tag="ArchLinux"
+           data-author="" >
+            <span class="post-title" title="archlinux系统中的一些常识或常用记录">archlinux系统中的一些常识或常用记录</span>
+            <span class="post-date" title="2019-08-05 19:51:14">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-autostart/"
+           data-tag="autostart,gnome#autostart"
+           data-author="" >
+            <span class="post-title" title="archlinux的autostart开机启动脚本">archlinux的autostart开机启动脚本</span>
+            <span class="post-date" title="2019-08-05 19:34:33">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-desktop/"
+           data-tag="桌面环境,gnome,gdm"
+           data-author="" >
+            <span class="post-title" title="archlinux安装桌面环境系统，好好玩耍">archlinux安装桌面环境系统，好好玩耍</span>
+            <span class="post-date" title="2019-08-05 11:33:53">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-sogou/"
+           data-tag="sogou,搜狗,输入法"
+           data-author="" >
+            <span class="post-title" title="arch安装sogou搜狗输入法">arch安装sogou搜狗输入法</span>
+            <span class="post-date" title="2019-08-05 11:12:59">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-google-chrome/"
+           data-tag="chrome,谷歌,图标"
+           data-author="" >
+            <span class="post-title" title="archlinux安装chrome谷歌浏览器">archlinux安装chrome谷歌浏览器</span>
+            <span class="post-date" title="2019-08-05 11:06:45">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-ssh/"
+           data-tag="ssh,sshd"
+           data-author="" >
+            <span class="post-title" title="archlinux开启ssh远程连接服务">archlinux开启ssh远程连接服务</span>
+            <span class="post-date" title="2019-08-05 11:03:46">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-efi/"
+           data-tag="efi,安装,efi启动"
+           data-author="" >
+            <span class="post-title" title="efi方式，安装archlinux，需要主板支持，目前新的主板都可以">efi方式，安装archlinux，需要主板支持，目前新的主板都可以</span>
+            <span class="post-date" title="2019-08-05 10:42:47">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/archlinux-mbr/"
+           data-tag="安装,mbr"
+           data-author="" >
+            <span class="post-title" title="mbr方式，简单快速安装archlinux">mbr方式，简单快速安装archlinux</span>
+            <span class="post-date" title="2019-08-05 10:20:52">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All ArchLinux "
+           href="/2019/08/05/ArchLinux/"
+           data-tag="ArchLinux"
+           data-author="" >
+            <span class="post-title" title="ArchLinux">ArchLinux</span>
+            <span class="post-date" title="2019-08-05 09:59:02">2019/08/05</span>
+        </a>
+        
+        
+        <a  class="All "
+           href="/2019/08/04/hello-world/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hello World">Hello World</span>
+            <span class="post-date" title="2019-08-04 09:59:02">2019/08/04</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-gentoo-common" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">gentoo的一些总结</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="gentoo">gentoo</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2024-03-21 11:49:21'>2019-08-30 17:33</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#query-variables"><span class="toc-text">query variables</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>live cd 的chroot后，emerge 会下载源码并编译安装，下载路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 查找压缩包路径</span><br><span class="line">find /mnt/gentoo \( -name &quot;*.tar.bz2&quot; -o -name &quot;*.tar.xz&quot; -o -name &quot;*.tar.gz&quot; \)</span><br><span class="line"></span><br><span class="line">ls /mnt/gentoo/var/cache/distfiles/ # emerge fetch download path</span><br><span class="line"></span><br><span class="line"># 查看目录大小</span><br><span class="line">du -sh /mnt/gentoo/var/cache/distfiles/</span><br></pre></td></tr></table></figure>
+
+<p>live cd安装时，看看硬盘占用大小</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df -h |grep /mnt/gentoo</span><br></pre></td></tr></table></figure>
+<p>已经安装的包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /var/db/pkg/* # installed package</span><br></pre></td></tr></table></figure>
+
+<p>在live cd安装完后，进入系统，有问题，回到live cd 并正常启动后，开始进入chroot的步骤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sda1 /mnt/gentoo</span><br><span class="line"></span><br><span class="line">mount --types proc /proc /mnt/gentoo/proc</span><br><span class="line">mount --rbind /sys /mnt/gentoo/sys</span><br><span class="line">mount --make-rslave /mnt/gentoo/sys</span><br><span class="line">mount --rbind /dev /mnt/gentoo/dev</span><br><span class="line">mount --make-rslave /mnt/gentoo/dev</span><br><span class="line"></span><br><span class="line">chroot /mnt/gentoo /bin/bash</span><br><span class="line">source /etc/profile</span><br><span class="line">export PS1=&quot;(chroot) $&#123;PS1&#125;&quot;</span><br><span class="line"></span><br><span class="line"># 执行其他操作，安装软件等等</span><br></pre></td></tr></table></figure>
+
+<p>按照教程安装了<code>sys-kernel/genkernel</code>，想安装systemd, 按教程需要安装<code>sys-kernel/genkernel-next</code>，提示冲突</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 卸载 sys-kernel/genkernel</span><br><span class="line">emerge -cav sys-kernel/genkernel # remove</span><br></pre></td></tr></table></figure>
+
+<p>设置swap虚拟内存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 4g, 1m是512m</span><br><span class="line">dd if=/dev/zero of=/swapfile count=8M</span><br><span class="line">mkswap /swapfile</span><br><span class="line"></span><br><span class="line">nano /etc/fstab </span><br><span class="line">/swapfile	        none	        swap	        sw,loop	        0 0</span><br><span class="line"></span><br><span class="line">swapon -a</span><br></pre></td></tr></table></figure>
+
+<p>硬盘只分一个区</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">parted /dev/sda --script -- mkpart primary 4MB -1</span><br></pre></td></tr></table></figure>
+
+<p>每次修改了USE后，更新world, 因为有的包会有新的依赖或者需要重新编译</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emerge --ask --verbose --update --deep --newuse @world</span><br></pre></td></tr></table></figure>
+
+<p>emerge-webrsync 说明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">下载地址</span><br><span class="line">http://distfiles.gentoo.org/snapshots/portage-20190901.tar.xz</span><br><span class="line"></span><br><span class="line">portage-20190901.tar.xz里面是可以安装的包的信息，相当于包管理器的db</span><br><span class="line"></span><br><span class="line">portage下载路径，目录后缀随机</span><br><span class="line">/mnt/gentoo/var/tmp/portage/webrsync-iXsqVl/portage-20190901.tar.xz</span><br><span class="line"></span><br><span class="line">/var/db/repos/gentoo/ 是portage解压路径，可以看看包内文件目录是一致的</span><br><span class="line"></span><br><span class="line">看看有什么选项</span><br><span class="line">emerge-webrsync -h</span><br><span class="line"></span><br><span class="line">保留下载的portage包到/etc/portage/make.conf的DISTDIR目录/var/cache/distfiles，也是emerge时，下载的源码包路径</span><br><span class="line">emerge-webrsync -k</span><br></pre></td></tr></table></figure>
+
+<p>查看所有网卡</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">如果这样都没有就是驱动问题，可能需要重新配置编译内核</span><br><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
+
+<p>安装systemd与<a target="_blank" rel="noopener" href="https://wiki.gentoo.org/wiki/GNOME/Guide">gnome</a>,<a target="_blank" rel="noopener" href="https://wiki.gentoo.org/wiki/Xorg/Guide#make.conf">VIDEO_CARDS和INPUT_DEVICES</a><br>先<a target="_blank" rel="noopener" href="https://wiki.gentoo.org/wiki/Xorg/Guide">Xorg</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/portage/make.conf</span><br><span class="line">USE=&quot;-qt5 -kde X gtk gnome systemd&quot;</span><br><span class="line"># synaptics for touchpad</span><br><span class="line">INPUT_DEVICES=&quot;libinput keyboard mouse synaptics&quot;</span><br><span class="line">VIDEO_CARDS=&quot;vmware&quot;</span><br><span class="line"></span><br><span class="line"># llvm for Enable LLVM backend for Gallium3D, but llvm compile so slow and easy oom</span><br><span class="line">/etc/portage/package.use 或者/etc/portage/package.use下的这个文件 添加一行</span><br><span class="line">media-libs/mesa -llvm</span><br><span class="line"></span><br><span class="line"># xorg</span><br><span class="line">emerge --pretend --verbose x11-base/xorg-drivers  #显示要安装的包，与所有VIDEO_CARDS INPUT_DEVICES 变量，以便按需设置</span><br><span class="line">emerge --ask x11-base/xorg-server</span><br><span class="line">env-update &amp;&amp; source /etc/profile</span><br><span class="line"></span><br><span class="line"># 包很多，根据配置大约有350-380个包，很慢</span><br><span class="line">emerge --ask gnome-base/gnome</span><br><span class="line"></span><br><span class="line">env-update &amp;&amp; source /etc/profile</span><br><span class="line">getent group plugdev # 输出：plugdev:x:104:</span><br><span class="line"></span><br><span class="line">gpasswd -a &lt;username&gt; plugdev</span><br><span class="line"></span><br><span class="line">systemctl start gdm</span><br></pre></td></tr></table></figure>
+
+<p>安装包时候会自动加入一些USE，设置功能，可以这样查看系统所有USE</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">emerge --info | grep ^USE</span><br><span class="line">emerge --ask --autounmask-write package  # 自动合并包配置，USE等等</span><br></pre></td></tr></table></figure>
+
+<p>安装具体包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls var/db/repos/gentoo/dev-java/oracle-jdk-bin/</span><br><span class="line">oracle-jdk-bin-1.8.0.202.ebuild  oracle-jdk-bin-11.0.2.ebuild</span><br><span class="line"></span><br><span class="line">emerge -av =oracle-jdk-bin-1.8.0.202</span><br></pre></td></tr></table></figure>
+
+<p>列出，将要安装的包，包括要按照的依赖包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">emerge --ask --verbose --deep --with-bdeps=y --pretend gnome</span><br></pre></td></tr></table></figure>
+
+<p>依赖于webkit-gtk的包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">equery depends webkit-gtk</span><br></pre></td></tr></table></figure>
+
+<p>gnome依赖的包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">equery depgraph --depth=2 gnome</span><br></pre></td></tr></table></figure>
+<p>添加config编译参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EXTRA_ECONF=&quot;--with-bzip2=lbzip2&quot; emerge -avD tar</span><br></pre></td></tr></table></figure>
+
+<p>一些清理命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eclean distfiles</span><br><span class="line">eclean packages</span><br><span class="line">emerge --ask app-admin/eclean-kernel</span><br></pre></td></tr></table></figure>
+
+
+<p>emerge -av sudo # sudo command, edit &#x2F;etc&#x2F;sudoers<br>emerge -av lbzip2 # paralel compress<br>emerge -av google-chrome<br>emerge -av wqy-microhei # chrome chinese font<br>emerge -av conky</p>
+<p>emerge –pretend @system<br>emerge –pretend @world<br>emerge -uDN @world # common command to update world</p>
+<p>&#x2F;usr&#x2F;sbin&#x2F;emaint –check world  # check world file</p>
+<p>regenworld # add pkg to world file</p>
+<p>world file  &#x2F;var&#x2F;lib&#x2F;portage&#x2F;world empty</p>
+<p>eselect profile set default&#x2F;linux&#x2F;amd64&#x2F;17.1&#x2F;desktop&#x2F;gnome&#x2F;systemd # &#x2F;etc&#x2F;portage&#x2F;make.profile&#x2F;parent, parent profiles</p>
+<h1 id="query-variables"><a href="#query-variables" class="headerlink" title="query variables"></a>query variables</h1><p>portageq envvar EROOT<br>portageq envvar INPUT_DEVICES<br>portageq config_protect<br>portageq distdir<br>portageq pkgdir<br>portageq repos_config &#x2F;<br>portageq get_repos &#x2F;</p>
+<p>sys-boot&#x2F;os-prober<br>dev-libs&#x2F;libisoburn # grub-mkrescue, generating grub rescue iso</p>
+<p>&#x2F;var&#x2F;tmp&#x2F;portage&#x2F;net-libs&#x2F;webkit-gtk-2.24.3&#x2F;temp&#x2F;build.log is compile webkit log</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2024 lukezhang123
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>感谢赞助，帮助我做的更好</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
